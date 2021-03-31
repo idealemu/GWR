@@ -1,3 +1,4 @@
+from sys import argv
 import os
 import random
 import subprocess
@@ -15,4 +16,13 @@ def change_wallpaper():
 	command = 'gsettings set org.gnome.desktop.background picture-uri "file:///' + path2 + '"'
 	subprocess.call(command, shell=True)
 
-change_wallpaper()
+def change_wallpaper_named(name: str):
+    path2 = os.path.join(path, name)
+    command = 'gsettings set org.gnome.desktop.background picture-uri "file:///' + path2 + '"'
+    subprocess.call(command, shell=True)
+
+if __name__ == "__main__":
+    if len(argv) == 2:
+        change_wallpaper_named(argv[1])
+    else:
+        change_wallpaper()
