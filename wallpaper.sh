@@ -116,12 +116,15 @@ set_wallpaper(){
 }
 
 set_dual_paper(){
-	gsettings set org.gnome.desktop.background picture-uri $file
+    # Uncomment to set for both light and dark mode
+	# gsettings set org.gnome.desktop.background picture-uri $file
+	gsettings set org.gnome.desktop.background picture-uri-dark $file
 	gsettings set org.gnome.desktop.background picture-options 'spanned'
 }
 
 set_single_paper(){
-	gsettings set org.gnome.desktop.background picture-uri $file
+	# gsettings set org.gnome.desktop.background picture-uri $file
+	gsettings set org.gnome.desktop.background picture-uri-dark $file
 	gsettings set org.gnome.desktop.background picture-options 'zoom'
 }
 
